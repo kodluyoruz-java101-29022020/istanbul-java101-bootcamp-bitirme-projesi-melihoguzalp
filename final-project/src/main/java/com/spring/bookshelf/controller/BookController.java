@@ -3,9 +3,11 @@ package com.spring.bookshelf.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,5 +50,17 @@ public class BookController {
 		return bookService.saveBook(book);
 	} 
 	
+	@PutMapping("/book/update")
+    @ResponseBody  
+	public Book update(@RequestBody Book book) {//update book
+		
+		return bookService.update(book);
+	} 
+	
 
+
+	@DeleteMapping("/book/delete/{bookId}")
+	public void deleteBook(@PathVariable Long bookId) {
+		bookService.delete(bookId);
+	}
 }

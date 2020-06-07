@@ -17,7 +17,8 @@ public class BookServiceImpl implements BookService {
 	@Autowired
 	private BookRepository bookRepository;
 	
-
+	
+	
 	
 	@MethodRunningTime(active = false)
 	@Override
@@ -53,6 +54,31 @@ public class BookServiceImpl implements BookService {
 		
 			return bookRepository.findByBookName(bookName);
 
+		
+	}
+
+
+
+	@Override
+	public Book update(Book book) {
+
+		
+		return bookRepository.save(book);
+	} 
+
+
+
+	@Override
+	public void delete(Long bookId) {
+
+		
+		if(bookRepository.findById(bookId) != null) {
+			
+			
+			bookRepository.deleteById(bookId);
+
+		}
+		
 		
 	}
 

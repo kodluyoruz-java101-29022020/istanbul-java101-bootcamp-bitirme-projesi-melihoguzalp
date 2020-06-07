@@ -18,6 +18,9 @@ public interface BookService {
 	public List<Book> searchBook(String bookName); 
 	public List<Book> getAllBookList();
 	
+	public Book update(Book book);
+	public void delete(Long bookId);
+
 	
 	
 	
